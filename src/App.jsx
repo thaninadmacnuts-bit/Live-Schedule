@@ -545,7 +545,7 @@ function PromoTab() {
       {/* Header */}
       <div style={{ textAlign: "center", marginBottom: 28 }}>
         <div style={{ fontSize: 13, color: "#C9B06A", fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 4 }}>Macnuts Coffee · July 2026</div>
-        <div style={{ fontSize: 26, fontWeight: 900, color: "#0B2447" }}>โปรโมชั่นประจำเดือน555</div>
+        <div style={{ fontSize: 26, fontWeight: 900, color: "#0B2447" }}>โปรโมชั่นประจำเดือน777</div>
         <div style={{ fontSize: 13, color: "#94A3B8", marginTop: 4 }}>ลดกระหน่ำ!! พร้อมของแถมตลอดเดือน</div>
       </div>
 
