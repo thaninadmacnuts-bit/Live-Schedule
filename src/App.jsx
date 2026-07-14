@@ -36,7 +36,7 @@ const RAW_DATA = [
   { staff: "PAM", platform: "Shopee", topic: "25.5 Pay Day ลดโหด โค้ดเพียบ!", date: "2026-07-24", startLive: "22:00", endLive: "00:00" },
   { staff: "PAM", platform: "Shopee", topic: "25.5 Pay Day ลดโหด โค้ดเพียบ!", date: "2026-07-25", startLive: "11:00", endLive: "13:00" },
   { staff: "PAM", platform: "Shopee", topic: "25.5 Pay Day ลดโหด โค้ดเพียบ!", date: "2026-07-25", startLive: "22:00", endLive: "00:00" },
-  { staff: "AIR", platform: "TikTok", topic: "ช้อปเงินเดือนออก ตุน Cold Brew กันเลอะ", date: "2026-07-27", startLive: "20:00", endLive: "22:00" },
+  { staff: "AIR", platform: "TikTok", topic: "ช้อปเงินเดือนออก ตุน Cold Brew กันเลอะ", date: "2026-07-27", startLive: "22:00", endLive: "00:00" },
   { staff: "PAM", platform: "Shopee", topic: "ช้อปเงินเดือนออก ตุน Cold Brew กันเลอะ", date: "2026-07-27", startLive: "20:00", endLive: "22:00" },
   { staff: "PAM", platform: "Shopee", topic: "ช้อปเงินเดือนออก ตุน Cold Brew กันเลอะ", date: "2026-07-28", startLive: "20:00", endLive: "22:00" },
   { staff: "AIR", platform: "TikTok", topic: "ช้อปเงินเดือนออก ตุน Cold Brew กันเลอะ", date: "2026-07-29", startLive: "20:00", endLive: "22:00" },
