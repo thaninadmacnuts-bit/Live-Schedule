@@ -639,40 +639,7 @@ function PromoTab() {
         ))}
       </div>
 
-      {/* Summary table */}
-      <div style={{ marginTop: 28, background: "white", borderRadius: 12, overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}>
-        <div style={{ background: "#0B2447", padding: "12px 20px" }}>
-          <div style={{ color: "#C9B06A", fontWeight: 800, fontSize: 13 }}>📊 สรุปโปรโมชั่น</div>
-        </div>
-        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
-          <thead>
-            <tr style={{ background: "#F8FAFC" }}>
-              {["Campaign", "ช่วงเวลา", "เงื่อนไข", "ของแถม", "หมายเหตุ"].map(h => (
-                <th key={h} style={{ padding: "10px 14px", textAlign: "left", fontSize: 11, fontWeight: 700, color: "#64748B", textTransform: "uppercase", letterSpacing: 0.5, borderBottom: "1px solid #E5E7EB" }}>{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {PROMOS.map((p, i) => (
-              <tr key={p.id} style={{ borderBottom: "1px solid #F1F5F9", background: i % 2 === 0 ? "white" : "#FAFBFC" }}>
-                <td style={{ padding: "11px 14px" }}>
-                  <span style={{ background: p.color, color: "white", borderRadius: 5, padding: "2px 8px", fontSize: 11, fontWeight: 700 }}>{p.campaign}</span>
-                </td>
-                <td style={{ padding: "11px 14px", color: "#334155", fontWeight: 600 }}>{p.period}</td>
-                <td style={{ padding: "11px 14px", color: "#0B2447", fontWeight: 700 }}>{p.condition}</td>
-                <td style={{ padding: "11px 14px", color: "#065F46", fontWeight: 600 }}>{p.reward.replace("รับฟรี! ","")}</td>
-                <td style={{ padding: "11px 14px", fontSize: 12 }}>
-                  <div style={{ color: "#94A3B8" }}>{p.periodSub}</div>
-                  {p.remark && <div style={{ color: "#B45309", fontWeight: 700, marginTop: 3 }}>⚠️ {p.remark}</div>}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-}
+   
 
 // ─── APP ─────────────────────────────────────────────────────────────────────
 export default function App() {
