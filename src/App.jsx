@@ -308,14 +308,14 @@ function SessionCard({ ev, isToday, isPast }) {
       display: "grid", gridTemplateColumns: "36px 1fr",
       gap: "0 10px", padding: "12px 16px",
       borderBottom: `1px solid ${T.borderLight}`,
-      background: isToday ? T.todayBg : isPast ? T.pastBg : T.card,
+      background: isToday ? "#FFFBEB" : isPast ? "#F9F9F7" : "#FFFFFF",
       opacity: isPast ? 0.5 : 1,
-      borderLeft: isToday ? `3px solid ${T.todayBorder}` : "3px solid transparent",
+      borderLeft: isToday ? "3px solid #F59E0B" : "3px solid transparent",
     }}>
       <div style={{ paddingTop: 2 }}><StaffBadge staff={ev.staff} /></div>
       <div>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4, flexWrap: "wrap" }}>
-          <span style={{ fontWeight: 700, fontSize: 13, color: weekend ? "#EF4444" : T.sub }}>
+          <span style={{ fontWeight: 700, fontSize: 13, color: weekend ? "#EF4444" : "#666" }}>
             {dateLabel} {dayLabel}.
           </span>
           <span style={{ color: T.border }}>·</span>
@@ -323,10 +323,10 @@ function SessionCard({ ev, isToday, isPast }) {
             {ev.startLive}
             <span style={{ color: T.muted, fontWeight: 400, fontSize: 12 }}>–{ev.endLive}</span>
           </span>
-          <span style={{ fontSize: 11, color: T.muted }}>({getDuration(ev.startLive, ev.endLive)})</span>
+          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.5)" }}>({getDuration(ev.startLive, ev.endLive)})</span>
           {isToday && <span style={{ background: "#F59E0B", color: "white", borderRadius: 3, padding: "1px 5px", fontSize: 9, fontWeight: 800 }}>TODAY</span>}
         </div>
-        <div style={{ fontSize: 13, color: T.text, lineHeight: 1.45, marginBottom: 6 }}>{ev.topic}</div>
+        <div style={{ fontSize: 13, color: "#111", lineHeight: 1.45, marginBottom: 6 }}>{ev.topic}</div>
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
           <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 11, color: plt.dot, fontWeight: 600 }}>
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: plt.dot, display: "inline-block" }} />
@@ -350,15 +350,15 @@ function DateGroupHeader({ date, count }) {
   const weekend = isWeekend(date);
   return (
     <div style={{
-      padding: "7px 16px", background: T.bg,
-      borderBottom: `1px solid ${T.border}`, borderTop: `1px solid ${T.border}`,
+      padding: "7px 16px", background: "#EDECEA",
+      borderBottom: "1px solid #E0DED9", borderTop: "1px solid #E0DED9",
       display: "flex", justifyContent: "space-between", alignItems: "center",
-      position: "sticky", top: 100, zIndex: 7,
+      position: "sticky", top: 96, zIndex: 7,
     }}>
       <span style={{ fontSize: 12, fontWeight: 700, color: weekend ? "#EF4444" : T.sub }}>
         {d.getDate()} {monthNames[d.getMonth()]} — {dayNames[d.getDay()]}
       </span>
-      <span style={{ fontSize: 11, color: T.muted }}>{count} session{count > 1 ? "s" : ""}</span>
+      <span style={{ fontSize: 11, color: "#999" }}>{count} session{count > 1 ? "s" : ""}</span>
     </div>
   );
 }
@@ -489,9 +489,9 @@ function ScheduleTab() {
   }, [filtered]);
 
   return (
-    <div style={{ background: T.bg, minHeight: "60vh" }}>
+    <div style={{ background: "#F5F4F0", minHeight: "60vh" }}>
       {/* Stats bar */}
-      <div style={{ background: T.card, borderBottom: `1px solid ${T.border}`, padding: "10px 16px", display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
+      <div style={{ background: "#0B2447", padding: "10px 16px", display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
         {[
           { label: "ทั้งหมด", val: stats.total },
           { label: "Shopee",  val: stats.shopee, color: "#EF4444" },
@@ -500,18 +500,18 @@ function ScheduleTab() {
           { label: "AIR",     val: stats.air,    color: "#1E40AF" },
         ].map(s => (
           <div key={s.label} style={{ display: "flex", alignItems: "baseline", gap: 3 }}>
-            <span style={{ fontWeight: 800, fontSize: 16, color: s.color || T.text }}>{s.val}</span>
+            <span style={{ fontWeight: 800, fontSize: 16, color: s.color || "#FFFFFF" }}>{s.val}</span>
             <span style={{ fontSize: 11, color: T.muted }}>{s.label}</span>
           </div>
         ))}
         <button onClick={() => downloadICS(filtered)} style={{
-          marginLeft: "auto", background: T.text, color: "white", border: "none",
+          marginLeft: "auto", background: "#C9B06A", color: "#0B2447", border: "none",
           borderRadius: 6, padding: "6px 12px", fontWeight: 700, cursor: "pointer", fontSize: 12,
         }}>📆 .ics</button>
       </div>
 
       {/* Filters */}
-      <div style={{ background: T.bg, borderBottom: `1px solid ${T.border}`, padding: "8px 16px", position: "sticky", top: 52, zIndex: 9, display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
+      <div style={{ background: "#F5F4F0", borderBottom: "1px solid #E8E8E5", padding: "8px 16px", position: "sticky", top: 52, zIndex: 9, display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
         <Select value={filterPlatform} onChange={setFilterPlatform} options={[{value:"all",label:"Platform"},{value:"Shopee",label:"Shopee"},{value:"TikTok",label:"TikTok"}]} />
         <Select value={filterStaff} onChange={setFilterStaff} options={[{value:"all",label:"Staff"},{value:"PAM",label:"PAM"},{value:"AIR",label:"AIR"}]} />
         <Select value={filterCampaign} onChange={setFilterCampaign} options={[{value:"all",label:"Campaign"},...CAMPAIGN_MAP.map(c=>({value:c.id,label:c.label}))]} />
@@ -543,7 +543,7 @@ function ScheduleTab() {
           </div>
         ))}
         {filtered.length === 0 && (
-          <div style={{ padding: "48px 20px", textAlign: "center", color: T.muted, fontSize: 14 }}>ไม่มีข้อมูลที่ตรงกับตัวกรอง</div>
+          <div style={{ padding: "48px 20px", textAlign: "center", color: "#999", fontSize: 14 }}>ไม่มีข้อมูลที่ตรงกับตัวกรอง</div>
         )}
       </div>
     </div>
@@ -562,7 +562,7 @@ const PROMOS = [
     bg: "linear-gradient(135deg, #EEF2FF 0%, #FFF8E7 100%)",
     badge: "🎯 ไลฟ์เอ็กซ์คลูซีฟ",
     condition: "ซื้อครบ 700 บาท",
-    reward: "รับฟรี! กระเป๋าผ้า Macnuts Live ละ 2 ใบ",
+    reward: "รับฟรี! แก้วเก็บความเย็น Macnuts",
     rewardDetail: "เลือกได้ทั้ง 2 สี (ดำ / ขาว)",
     remark: "🛍🎵 แถมทั้ง Shopee Live และ TikTok Live · 8–10 ส.ค. 69 เท่านั้น · แจกกระเป๋าผ้า Live ละ 2 ใบ",
     icon: "🎁",
@@ -573,101 +573,97 @@ const PROMOS = [
 // ─── PROMO TAB ────────────────────────────────────────────────────────────────
 function PromoTab() {
   return (
-    <div style={{ maxWidth: 860, margin: "0 auto", padding: "24px 20px 48px" }}>
+    <div style={{ background: "#0B2447", minHeight: "80vh", padding: "28px 20px 56px" }}>
+      <div style={{ maxWidth: 560, margin: "0 auto" }}>
 
-      {/* Header */}
-      <div style={{ textAlign: "center", marginBottom: 28 }}>
-        <div style={{ fontSize: 13, color: "#C9B06A", fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 4 }}>Macnuts Coffee · August 2026</div>
-        <div style={{ fontSize: 26, fontWeight: 900, color: "#0B2447" }}>โปรโมชั่นประจำเดือน</div>
-        <div style={{ fontSize: 13, color: "#94A3B8", marginTop: 4 }}>ลดกระหน่ำ!! พร้อมของแถมตลอดเดือน</div>
-      </div>
+        {/* Header */}
+        <div style={{ marginBottom: 24 }}>
+          <div style={{ fontSize: 10, color: "#C9B06A", fontWeight: 700, letterSpacing: 3, textTransform: "uppercase", marginBottom: 6 }}>Macnuts Coffee · ส.ค. 2569</div>
+          <div style={{ fontSize: 28, fontWeight: 900, color: "#FFFFFF", lineHeight: 1.2 }}>โปรโมชั่น</div>
+        </div>
 
-      {/* Promo cards */}
-      <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
         {PROMOS.map(p => (
-          <div key={p.id} style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: `1.5px solid ${p.accent}30` }}>
+          <div key={p.id} style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.32)" }}>
 
-            {/* Card header */}
-            <div style={{ background: p.bg, padding: "20px 24px 18px", borderBottom: `2px solid ${p.accent}40` }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 10 }}>
+            {/* Hero banner */}
+            <div style={{ background: "linear-gradient(135deg, #C9B06A 0%, #E8D08A 50%, #C9B06A 100%)", padding: "28px 24px 22px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                 <div>
-                  <span style={{ background: p.color, color: "white", borderRadius: 20, padding: "4px 12px", fontSize: 11, fontWeight: 800 }}>{p.badge}</span>
-                  <div style={{ fontSize: 22, fontWeight: 900, color: p.color, marginTop: 10 }}>{p.campaign}</div>
-                  <div style={{ fontSize: 13, color: "#64748B", marginTop: 2 }}>📆 {p.period}</div>
-                  {p.periodSub && <div style={{ fontSize: 11, color: "#94A3B8", marginTop: 1 }}>{p.periodSub}</div>}
+                  <span style={{ background: "#0B2447", color: "#C9B06A", borderRadius: 20, padding: "3px 12px", fontSize: 10, fontWeight: 800, letterSpacing: 1 }}>{p.badge}</span>
+                  <div style={{ fontSize: 40, fontWeight: 900, color: "#0B2447", marginTop: 10, lineHeight: 1 }}>{p.campaign}</div>
+                  <div style={{ fontSize: 13, color: "#0B2447", marginTop: 6, fontWeight: 600, opacity: 0.75 }}>📆 {p.period}</div>
                 </div>
-                <div style={{ fontSize: 48 }}>{p.icon}</div>
+                <div style={{ fontSize: 52, filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.15))" }}>{p.icon}</div>
               </div>
             </div>
 
-            {/* Condition & reward */}
-            <div style={{ background: "white", padding: "20px 24px" }}>
-              <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+            {/* Body */}
+            <div style={{ background: "#112240", padding: "20px 24px" }}>
 
-                {/* Condition */}
-                <div style={{ flex: 1, minWidth: 160, background: "#F8FAFC", borderRadius: 10, padding: "14px 16px", borderLeft: `4px solid ${p.color}` }}>
-                  <div style={{ fontSize: 10, fontWeight: 800, color: "#94A3B8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>เงื่อนไข</div>
-                  <div style={{ fontSize: 18, fontWeight: 900, color: p.color }}>{p.condition}</div>
+              {/* Condition → Reward */}
+              <div style={{ display: "flex", alignItems: "stretch", gap: 12, marginBottom: 16, flexWrap: "wrap" }}>
+                <div style={{ flex: "1 1 140px", background: "rgba(255,255,255,0.06)", borderRadius: 10, padding: "14px 16px", borderLeft: "3px solid #C9B06A" }}>
+                  <div style={{ fontSize: 9, fontWeight: 800, color: "#C9B06A", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 6 }}>เงื่อนไข</div>
+                  <div style={{ fontSize: 17, fontWeight: 900, color: "#FFFFFF" }}>{p.condition}</div>
                 </div>
-
-                {/* Arrow */}
-                <div style={{ display: "flex", alignItems: "center", fontSize: 22, color: p.accent, fontWeight: 900 }}>→</div>
-
-                {/* Reward */}
-                <div style={{ flex: 2, minWidth: 200, background: p.color, borderRadius: 10, padding: "14px 16px" }}>
-                  <div style={{ fontSize: 10, fontWeight: 800, color: p.accent, textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>ของแถม</div>
-                  <div style={{ fontSize: 16, fontWeight: 900, color: "white" }}>{p.reward}</div>
-                  {p.rewardDetail && <div style={{ fontSize: 11, color: "rgba(255,255,255,0.65)", marginTop: 4 }}>{p.rewardDetail}</div>}
+                <div style={{ display: "flex", alignItems: "center", color: "#C9B06A", fontSize: 20, fontWeight: 900 }}>→</div>
+                <div style={{ flex: "2 1 180px", background: "#C9B06A", borderRadius: 10, padding: "14px 16px" }}>
+                  <div style={{ fontSize: 9, fontWeight: 800, color: "#0B2447", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 6 }}>ของแถม</div>
+                  <div style={{ fontSize: 15, fontWeight: 900, color: "#0B2447" }}>{p.reward}</div>
+                  {p.rewardDetail && <div style={{ fontSize: 11, color: "rgba(11,36,71,0.65)", marginTop: 3 }}>{p.rewardDetail}</div>}
                 </div>
               </div>
 
               {/* Remark */}
               {p.remark && (
-                <div style={{ marginTop: 12, background: "#FEF3C7", border: "1px solid #FDE68A", borderRadius: 8, padding: "8px 12px", fontSize: 12, fontWeight: 700, color: "#B45309" }}>
+                <div style={{ background: "rgba(201,176,106,0.12)", border: "1px solid rgba(201,176,106,0.3)", borderRadius: 8, padding: "10px 14px", fontSize: 12, fontWeight: 600, color: "#C9B06A", lineHeight: 1.6 }}>
                   ⚠️ {p.remark}
                 </div>
               )}
 
               {/* Tags */}
-              <div style={{ display: "flex", gap: 8, marginTop: 14, flexWrap: "wrap" }}>
+              <div style={{ display: "flex", gap: 6, marginTop: 14, flexWrap: "wrap" }}>
                 {p.tags.map(tag => (
-                  <span key={tag} style={{ background: "#F1F5F9", color: "#475569", borderRadius: 6, padding: "4px 10px", fontSize: 11, fontWeight: 600 }}>✓ {tag}</span>
+                  <span key={tag} style={{ background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.6)", borderRadius: 6, padding: "4px 10px", fontSize: 11, fontWeight: 600 }}>✓ {tag}</span>
                 ))}
               </div>
             </div>
           </div>
         ))}
       </div>
-
-   
+    </div>
+  );
+}
 
 // ─── APP ─────────────────────────────────────────────────────────────────────
+const NAVY = "#0B2447";
+const GOLD = "#C9B06A";
+
 export default function App() {
   const [tab, setTab] = useState("schedule");
   return (
-    <div style={{ fontFamily:"'Sarabun','Noto Sans Thai',sans-serif", background:"#F0EDE8", minHeight:"100vh" }}>
+    <div style={{ fontFamily:"'Sarabun','Noto Sans Thai',sans-serif", background:"#F5F4F0", minHeight:"100vh" }}>
 
-      {/* Top bar */}
-      <div style={{ background:"#FFFFFF", borderBottom:"1px solid #E8E8E5", padding:"12px 16px 0", position:"sticky", top:0, zIndex:10 }}>
-        <div style={{ maxWidth:680, margin:"0 auto" }}>
-          <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:10 }}>
-            <div>
-              <div style={{ fontSize:10, color:"#999", fontWeight:600, letterSpacing:2, textTransform:"uppercase" }}>Macnuts Coffee</div>
-              <div style={{ fontSize:17, fontWeight:800, color:"#111", marginTop:1 }}>Live · ส.ค. 2569</div>
-            </div>
+      {/* Top bar — Navy + Gold */}
+      <div style={{ background: NAVY, padding:"0 16px", position:"sticky", top:0, zIndex:10, boxShadow:"0 2px 12px rgba(11,36,71,0.18)" }}>
+        <div style={{ maxWidth:680, margin:"0 auto", display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+          <div style={{ padding:"12px 0 10px" }}>
+            <div style={{ fontSize:9, color: GOLD, fontWeight:700, letterSpacing:3, textTransform:"uppercase" }}>Macnuts Coffee</div>
+            <div style={{ fontSize:16, fontWeight:800, color:"#FFFFFF", marginTop:1, letterSpacing:"-0.3px" }}>Live · ส.ค. 2569</div>
           </div>
           {/* Tab bar */}
-          <div style={{ display:"flex", gap:0 }}>
+          <div style={{ display:"flex", gap:0, height:"100%" }}>
             {[
               { id:"schedule", label:"ตาราง" },
               { id:"promo",    label:"โปร" },
               { id:"script",   label:"Script" },
             ].map(t => (
               <button key={t.id} onClick={() => setTab(t.id)} style={{
-                background:"none", border:"none", padding:"8px 16px", cursor:"pointer",
+                background:"none", border:"none", padding:"18px 14px 16px", cursor:"pointer",
                 fontSize:13, fontWeight: tab===t.id ? 700 : 500,
-                color: tab===t.id ? "#111" : "#999",
-                borderBottom: tab===t.id ? "2px solid #111" : "2px solid transparent",
+                color: tab===t.id ? GOLD : "rgba(255,255,255,0.5)",
+                borderBottom: tab===t.id ? `2px solid ${GOLD}` : "2px solid transparent",
+                transition:"all .15s",
               }}>{t.label}</button>
             ))}
           </div>
