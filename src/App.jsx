@@ -562,7 +562,7 @@ const PROMOS = [
     bg: "linear-gradient(135deg, #EEF2FF 0%, #FFF8E7 100%)",
     badge: "🎯 ไลฟ์เอ็กซ์คลูซีฟ",
     condition: "ซื้อครบ 700 บาท",
-    reward: "รับฟรี! แก้วเก็บความเย็น Macnuts",
+    reward: "รับฟรี! กระเป๋าผ้า Macnuts Live ละ 2 ใบ",
     rewardDetail: "เลือกได้ทั้ง 2 สี (ดำ / ขาว)",
     remark: "🛍🎵 แถมทั้ง Shopee Live และ TikTok Live · 8–10 ส.ค. 69 เท่านั้น · แจกกระเป๋าผ้า Live ละ 2 ใบ",
     icon: "🎁",
