@@ -11,7 +11,6 @@ const RAW_DATA = [
   { staff: "AIR", platform: "TikTok", topic: "Coffee Quiz แจกของรางวัล", date: "2026-08-06", startLive: "19:00", endLive: "22:00" },
   { staff: "PAM", platform: "Shopee", topic: "Payday Warm Up", date: "2026-08-07", startLive: "19:00", endLive: "22:00" },
   { staff: "AIR", platform: "Shopee", topic: "Cold Drip Payday", date: "2026-08-07", startLive: "22:30", endLive: "00:30" },
-  { staff: "PAM", platform: "Shopee", topic: "Payday 8.8", date: "2026-08-07", startLive: "23:00", endLive: "00:30" },
   { staff: "PAM", platform: "Shopee", topic: "Payday 8.8", date: "2026-08-08", startLive: "19:00", endLive: "21:00" },
   { staff: "AIR", platform: "Shopee", topic: "8.8 โค้ดเด็ด เริ่มแล้ว!!! Cold Brew", date: "2026-08-08", startLive: "21:00", endLive: "00:30" },
   { staff: "AIR", platform: "TikTok", topic: "Cold Drip Payday", date: "2026-08-08", startLive: "23:00", endLive: "00:30" },
