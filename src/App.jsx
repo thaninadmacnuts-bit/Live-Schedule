@@ -12,7 +12,7 @@ const RAW_DATA = [
   { staff: "PAM", platform: "Shopee", topic: "Payday Warm Up", date: "2026-08-07", startLive: "19:00", endLive: "22:00" },
   { staff: "AIR", platform: "Shopee", topic: "Cold Drip Payday", date: "2026-08-07", startLive: "22:30", endLive: "00:30" },
   { staff: "PAM", platform: "Shopee", topic: "Payday 8.8", date: "2026-08-08", startLive: "19:00", endLive: "21:00" },
-  { staff: "AIR", platform: "Shopee", topic: "8.8 โค้ดเด็ด เริ่มแล้ว!!! Cold Brew", date: "2026-08-08", startLive: "21:00", endLive: "00:30" },
+  { staff: "AIR", platform: "Shopee", topic: "8.8 โค้ดเด็ด เริ่มแล้ว!!! Cold Brew", date: "2026-08-08", startLive: "21:00", endLive: "22:30" },
   { staff: "AIR", platform: "TikTok", topic: "Cold Drip Payday", date: "2026-08-08", startLive: "23:00", endLive: "00:30" },
   { staff: "PAM", platform: "Shopee", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!", date: "2026-08-08", startLive: "23:00", endLive: "00:30" },
   { staff: "PAM", platform: "Shopee", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!", date: "2026-08-09", startLive: "20:00", endLive: "22:00" },
