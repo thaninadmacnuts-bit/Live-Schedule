@@ -2,43 +2,43 @@ import { useState, useMemo } from "react";
 
 // ─── DATA ───────────────────────────────────────────────────────────────────
 const RAW_DATA = [
-  { staff: "PAM", platform: "Shopee", topic: "Cold Brew อื่นจ่ายทุกวัน", date: "2026-08-02", startLive: "20:00", endLive: "22:00" },
-  { staff: "PAM", platform: "Shopee", topic: "Coffee Talk เรื่องราวเกี่ยวกับกาแฟ", date: "2026-08-03", startLive: "19:30", endLive: "21:30" },
-  { staff: "PAM", platform: "Shopee", topic: "โปรต้นเดือน ช้อปคุ้ม", date: "2026-08-04", startLive: "20:00", endLive: "22:00" },
-  { staff: "AIR", platform: "TikTok", topic: "โปรต้นเดือน ช้อปคุ้ม", date: "2026-08-04", startLive: "20:00", endLive: "22:00" },
-  { staff: "PAM", platform: "Shopee", topic: "โปรต้นเดือน ช้อปคุ้ม", date: "2026-08-05", startLive: "19:00", endLive: "21:30" },
-  { staff: "PAM", platform: "Shopee", topic: "โปรต้นเดือน ช้อปคุ้ม", date: "2026-08-06", startLive: "19:00", endLive: "22:30" },
-  { staff: "AIR", platform: "TikTok", topic: "Coffee Quiz แจกของรางวัล", date: "2026-08-06", startLive: "19:00", endLive: "22:00" },
-  { staff: "PAM", platform: "Shopee", topic: "Payday Warm Up", date: "2026-08-07", startLive: "19:00", endLive: "22:00" },
-  { staff: "AIR", platform: "Shopee", topic: "Cold Drip Payday", date: "2026-08-07", startLive: "22:30", endLive: "00:30" },
-  { staff: "PAM", platform: "Shopee", topic: "Payday 8.8", date: "2026-08-08", startLive: "19:00", endLive: "21:00" },
-  { staff: "AIR", platform: "Shopee", topic: "8.8 โค้ดเด็ด เริ่มแล้ว!!! Cold Brew", date: "2026-08-08", startLive: "21:00", endLive: "22:30" },
-  { staff: "AIR", platform: "TikTok", topic: "Cold Drip Payday", date: "2026-08-08", startLive: "23:00", endLive: "00:30" },
-  { staff: "PAM", platform: "Shopee", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!", date: "2026-08-08", startLive: "23:00", endLive: "00:30" },
-  { staff: "PAM", platform: "Shopee", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!", date: "2026-08-09", startLive: "20:00", endLive: "22:00" },
-  { staff: "PAM", platform: "Shopee", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!", date: "2026-08-10", startLive: "20:00", endLive: "22:00" },
-  { staff: "AIR", platform: "TikTok", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!", date: "2026-08-11", startLive: "20:30", endLive: "23:00" },
-  { staff: "PAM", platform: "Shopee", topic: "Cold Brew ดีลสดวันพุธ", date: "2026-08-12", startLive: "20:00", endLive: "22:00" },
-  { staff: "AIR", platform: "TikTok", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!", date: "2026-08-13", startLive: "20:30", endLive: "23:00" },
-  { staff: "PAM", platform: "Shopee", topic: "15.8 โค้ดลดแรง รีบช้อป!!!", date: "2026-08-14", startLive: "18:00", endLive: "21:00" },
-  { staff: "PAM", platform: "Shopee", topic: "15.8 โค้ดลดแรง รีบช้อป!!!", date: "2026-08-14", startLive: "23:00", endLive: "00:30" },
-  { staff: "PAM", platform: "Shopee", topic: "15.8 โค้ดลดแรง รีบช้อป!!!", date: "2026-08-15", startLive: "19:30", endLive: "21:00" },
-  { staff: "PAM", platform: "Shopee", topic: "ต่อเวลา 15.8 โค้ดลดแรง", date: "2026-08-16", startLive: "20:00", endLive: "22:00" },
-  { staff: "AIR", platform: "Shopee", topic: "ต่อเวลา 15.8 โค้ดลดแรง", date: "2026-08-17", startLive: "20:00", endLive: "22:00" },
-  { staff: "AIR", platform: "TikTok", topic: "ต่อเวลา 15.8 โค้ดลดแรง", date: "2026-08-18", startLive: "20:00", endLive: "23:00" },
-  { staff: "PAM", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-19", startLive: "19:00", endLive: "21:00" },
+  { staff: "WA", platform: "Shopee", topic: "Cold Brew อื่นจ่ายทุกวัน",          date: "2026-08-02", startLive: "20:00", endLive: "22:00" },
+  { staff: "WA", platform: "Shopee", topic: "Coffee Talk เรื่องราวเกี่ยวกับกาแฟ", date: "2026-08-03", startLive: "19:30", endLive: "21:30" },
+  { staff: "WA", platform: "Shopee", topic: "โปรต้นเดือน ช้อปคุ้ม",              date: "2026-08-04", startLive: "20:00", endLive: "22:00" },
+  { staff: "AIR", platform: "TikTok", topic: "โปรต้นเดือน ช้อปคุ้ม",              date: "2026-08-04", startLive: "20:00", endLive: "22:00" },
+  { staff: "WA", platform: "Shopee", topic: "โปรต้นเดือน ช้อปคุ้ม",              date: "2026-08-05", startLive: "19:00", endLive: "21:30" },
+  { staff: "WA", platform: "Shopee", topic: "โปรต้นเดือน ช้อปคุ้ม",              date: "2026-08-06", startLive: "19:00", endLive: "22:30" },
+  { staff: "AIR", platform: "TikTok", topic: "Coffee Quiz แจกของรางวัล",           date: "2026-08-06", startLive: "19:00", endLive: "22:00" },
+  { staff: "WA", platform: "Shopee", topic: "Payday Warm Up",                     date: "2026-08-07", startLive: "19:00", endLive: "22:00" },
+  { staff: "AIR", platform: "Shopee", topic: "Cold Drip Payday",                   date: "2026-08-07", startLive: "22:30", endLive: "00:30" },
+  { staff: "WA", platform: "Shopee", topic: "Payday 8.8",                         date: "2026-08-08", startLive: "19:00", endLive: "21:00" },
+  { staff: "AIR", platform: "Shopee", topic: "8.8 โค้ดเด็ด เริ่มแล้ว!!! Cold Brew", date: "2026-08-08", startLive: "21:00", endLive: "00:30" },
+  { staff: "AIR", platform: "TikTok", topic: "Cold Drip Payday",                   date: "2026-08-08", startLive: "23:00", endLive: "00:30" },
+  { staff: "WA", platform: "Shopee", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!",     date: "2026-08-08", startLive: "23:00", endLive: "00:30" },
+  { staff: "WA", platform: "Shopee", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!",     date: "2026-08-09", startLive: "20:00", endLive: "22:00" },
+  { staff: "WA", platform: "Shopee", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!",     date: "2026-08-10", startLive: "20:00", endLive: "22:00" },
+  { staff: "AIR", platform: "TikTok", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!",     date: "2026-08-11", startLive: "20:30", endLive: "23:00" },
+  { staff: "WA", platform: "Shopee", topic: "Cold Brew ดีลสดวันพุธ",              date: "2026-08-12", startLive: "20:00", endLive: "22:00" },
+  { staff: "AIR", platform: "TikTok", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!",     date: "2026-08-13", startLive: "20:30", endLive: "23:00" },
+  { staff: "WA", platform: "Shopee", topic: "15.8 โค้ดลดแรง รีบช้อป!!!",         date: "2026-08-14", startLive: "18:00", endLive: "21:00" },
+  { staff: "WA", platform: "Shopee", topic: "15.8 โค้ดลดแรง รีบช้อป!!!",         date: "2026-08-14", startLive: "23:00", endLive: "00:30" },
+  { staff: "WA", platform: "Shopee", topic: "15.8 โค้ดลดแรง รีบช้อป!!!",         date: "2026-08-15", startLive: "19:30", endLive: "21:00" },
+  { staff: "WA", platform: "Shopee", topic: "ต่อเวลา 15.8 โค้ดลดแรง",            date: "2026-08-16", startLive: "20:00", endLive: "22:00" },
+  { staff: "AIR", platform: "Shopee", topic: "ต่อเวลา 15.8 โค้ดลดแรง",            date: "2026-08-17", startLive: "20:00", endLive: "22:00" },
+  { staff: "AIR", platform: "TikTok", topic: "ต่อเวลา 15.8 โค้ดลดแรง",            date: "2026-08-18", startLive: "20:00", endLive: "23:00" },
+  { staff: "WA", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-19", startLive: "19:00", endLive: "21:00" },
   { staff: "AIR", platform: "TikTok", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-20", startLive: "20:30", endLive: "23:00" },
-  { staff: "PAM", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-20", startLive: "19:00", endLive: "21:00" },
-  { staff: "PAM", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-23", startLive: "20:00", endLive: "22:00" },
-  { staff: "PAM", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-24", startLive: "19:00", endLive: "21:00" },
+  { staff: "WA", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-20", startLive: "19:00", endLive: "21:00" },
+  { staff: "WA", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-23", startLive: "20:00", endLive: "22:00" },
+  { staff: "WA", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-24", startLive: "19:00", endLive: "21:00" },
   { staff: "AIR", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-24", startLive: "23:00", endLive: "00:30" },
-  { staff: "PAM", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-25", startLive: "19:00", endLive: "21:00" },
+  { staff: "WA", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-25", startLive: "19:00", endLive: "21:00" },
   { staff: "AIR", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-25", startLive: "22:00", endLive: "00:30" },
-  { staff: "PAM", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-26", startLive: "20:00", endLive: "22:00" },
-  { staff: "PAM", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-27", startLive: "20:00", endLive: "22:00" },
+  { staff: "WA", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-26", startLive: "20:00", endLive: "22:00" },
+  { staff: "WA", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-27", startLive: "20:00", endLive: "22:00" },
   { staff: "AIR", platform: "TikTok", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-27", startLive: "20:30", endLive: "23:00" },
-  { staff: "PAM", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-30", startLive: "20:00", endLive: "22:00" },
-  { staff: "PAM", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-31", startLive: "20:00", endLive: "22:00" },
+  { staff: "WA", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-30", startLive: "20:00", endLive: "22:00" },
+  { staff: "WA", platform: "Shopee", topic: "Macnuts Cold Brew ชงเองได้ที่บ้าน", date: "2026-08-31", startLive: "20:00", endLive: "22:00" },
 ];
 
 const SCRIPT_SECTIONS = [
@@ -262,7 +262,7 @@ function downloadICS(events) {
 }
 
 const PLT = { Shopee: { dot: "#EF4444", label: "Shopee" }, TikTok: { dot: "#18181B", label: "TikTok" } };
-const STAFF_COLOR = { PAM: { text: "#92400E", bg: "#FEF3C7" }, AIR: { text: "#1E40AF", bg: "#DBEAFE" } };
+const STAFF_COLOR = { WA: { text: "#065F46", bg: "#D1FAE5" }, AIR: { text: "#1E40AF", bg: "#DBEAFE" } };
 
 const T = {
   bg: "#F7F7F5", card: "#FFFFFF", border: "#E8E8E5", borderLight: "#F0F0EE",
@@ -304,39 +304,52 @@ function SessionCard({ ev, isToday, isPast }) {
   const dayLabel = getDayTH(ev.date);
   return (
     <div style={{
-      display: "grid", gridTemplateColumns: "36px 1fr",
-      gap: "0 10px", padding: "12px 16px",
+      padding: "14px 16px",
       borderBottom: `1px solid ${T.borderLight}`,
       background: isToday ? "#FFFBEB" : isPast ? "#F9F9F7" : "#FFFFFF",
       opacity: isPast ? 0.5 : 1,
       borderLeft: isToday ? "3px solid #F59E0B" : "3px solid transparent",
     }}>
-      <div style={{ paddingTop: 2 }}><StaffBadge staff={ev.staff} /></div>
-      <div>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4, flexWrap: "wrap" }}>
-          <span style={{ fontWeight: 700, fontSize: 13, color: weekend ? "#EF4444" : "#666" }}>
-            {dateLabel} {dayLabel}.
-          </span>
-          <span style={{ color: T.border }}>·</span>
-          <span style={{ fontWeight: 700, fontSize: 14, color: T.text, fontVariantNumeric: "tabular-nums" }}>
-            {ev.startLive}
-            <span style={{ color: T.muted, fontWeight: 400, fontSize: 12 }}>–{ev.endLive}</span>
-          </span>
-          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.5)" }}>({getDuration(ev.startLive, ev.endLive)})</span>
-          {isToday && <span style={{ background: "#F59E0B", color: "white", borderRadius: 3, padding: "1px 5px", fontSize: 9, fontWeight: 800 }}>TODAY</span>}
+      {/* Row 1: Staff + Date + Time */}
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+        <StaffBadge staff={ev.staff} />
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
+            <span style={{ fontWeight: 700, fontSize: 13, color: weekend ? "#EF4444" : T.sub }}>
+              {dateLabel} {dayLabel}.
+            </span>
+            {isToday && <span style={{ background: "#F59E0B", color: "white", borderRadius: 4, padding: "1px 6px", fontSize: 10, fontWeight: 800 }}>TODAY</span>}
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 1 }}>
+            <span style={{ fontWeight: 800, fontSize: 16, color: T.text, fontVariantNumeric: "tabular-nums", letterSpacing: "-0.3px" }}>
+              {ev.startLive}
+            </span>
+            <span style={{ color: T.muted, fontSize: 13 }}>–</span>
+            <span style={{ fontWeight: 600, fontSize: 14, color: T.sub, fontVariantNumeric: "tabular-nums" }}>
+              {ev.endLive}
+            </span>
+            <span style={{ fontSize: 11, color: T.muted, marginLeft: 2 }}>({getDuration(ev.startLive, ev.endLive)})</span>
+          </div>
         </div>
-        <div style={{ fontSize: 13, color: "#111", lineHeight: 1.45, marginBottom: 6 }}>{ev.topic}</div>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 11, color: plt.dot, fontWeight: 600 }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: plt.dot, display: "inline-block" }} />
-            {plt.label}
-          </span>
-          <span style={{ color: T.borderLight }}>·</span>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 11, color: camp.color || "#666", fontWeight: 600 }}>
-            <span style={{ width: 5, height: 5, borderRadius: "50%", background: camp.color || "#ccc", display: "inline-block" }} />
-            {camp.label}
-          </span>
-        </div>
+      </div>
+      {/* Row 2: Topic */}
+      <div style={{ fontSize: 14, color: T.text, lineHeight: 1.5, marginBottom: 8, paddingLeft: 42 }}>
+        {ev.topic}
+      </div>
+      {/* Row 3: Platform + Campaign chips */}
+      <div style={{ display: "flex", alignItems: "center", gap: 6, paddingLeft: 42, flexWrap: "wrap" }}>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 12, color: plt.dot, fontWeight: 700,
+          background: plt.label === "Shopee" ? "#FFF0EE" : "#F4F4F4",
+          borderRadius: 6, padding: "3px 8px" }}>
+          <span style={{ width: 6, height: 6, borderRadius: "50%", background: plt.dot, display: "inline-block" }} />
+          {plt.label}
+        </span>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 12, fontWeight: 700,
+          color: camp.color || T.sub,
+          background: camp.bg || "#F3F4F6",
+          borderRadius: 6, padding: "3px 8px" }}>
+          {camp.label}
+        </span>
       </div>
     </div>
   );
@@ -464,7 +477,7 @@ function ScheduleTab() {
     total: filtered.length,
     shopee: filtered.filter(e=>e.platform==="Shopee").length,
     tiktok: filtered.filter(e=>e.platform==="TikTok").length,
-    pam: filtered.filter(e=>e.staff==="PAM").length,
+    wa: filtered.filter(e=>e.staff==="WA").length,
     air: filtered.filter(e=>e.staff==="AIR").length,
   }), [filtered]);
 
@@ -490,44 +503,55 @@ function ScheduleTab() {
   return (
     <div style={{ background: "#F5F4F0", minHeight: "60vh" }}>
       {/* Stats bar */}
-      <div style={{ background: "#0B2447", padding: "10px 16px", display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
-        {[
-          { label: "ทั้งหมด", val: stats.total },
-          { label: "Shopee",  val: stats.shopee, color: "#EF4444" },
-          { label: "TikTok",  val: stats.tiktok },
-          { label: "PAM",     val: stats.pam,    color: "#92400E" },
-          { label: "AIR",     val: stats.air,    color: "#1E40AF" },
-        ].map(s => (
-          <div key={s.label} style={{ display: "flex", alignItems: "baseline", gap: 3 }}>
-            <span style={{ fontWeight: 800, fontSize: 16, color: s.color || "#FFFFFF" }}>{s.val}</span>
-            <span style={{ fontSize: 11, color: T.muted }}>{s.label}</span>
-          </div>
-        ))}
-        <button onClick={() => downloadICS(filtered)} style={{
-          marginLeft: "auto", background: "#C9B06A", color: "#0B2447", border: "none",
-          borderRadius: 6, padding: "6px 12px", fontWeight: 700, cursor: "pointer", fontSize: 12,
-        }}>📆 .ics</button>
+      <div style={{ background: "#FFFFFF", borderBottom: `1px solid ${T.border}`, padding: "10px 16px" }}>
+        <div style={{ display: "flex", gap: 0, alignItems: "center" }}>
+          {[
+            { label: "ทั้งหมด", val: stats.total, color: T.text },
+            { label: "Shopee",  val: stats.shopee, color: "#EF4444" },
+            { label: "TikTok",  val: stats.tiktok, color: T.text },
+            { label: "WA",      val: stats.wa,     color: "#065F46" },
+            { label: "AIR",     val: stats.air,    color: "#1E40AF" },
+          ].map((s, i) => (
+            <div key={s.label} style={{
+              flex: 1, textAlign: "center",
+              borderRight: i < 4 ? `1px solid ${T.borderLight}` : "none",
+              padding: "2px 0",
+            }}>
+              <div style={{ fontWeight: 800, fontSize: 18, color: s.color }}>{s.val}</div>
+              <div style={{ fontSize: 10, color: T.muted, marginTop: 1 }}>{s.label}</div>
+            </div>
+          ))}
+          <button onClick={() => downloadICS(filtered)} style={{
+            marginLeft: 8, background: T.text, color: "white", border: "none",
+            borderRadius: 6, padding: "8px 10px", fontWeight: 700, cursor: "pointer", fontSize: 11,
+            flexShrink: 0, lineHeight: 1.2,
+          }}>📆<br/>ics</button>
+        </div>
       </div>
 
       {/* Filters */}
-      <div style={{ background: "#F5F4F0", borderBottom: "1px solid #E8E8E5", padding: "8px 16px", position: "sticky", top: 52, zIndex: 9, display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <Select value={filterPlatform} onChange={setFilterPlatform} options={[{value:"all",label:"Platform"},{value:"Shopee",label:"Shopee"},{value:"TikTok",label:"TikTok"}]} />
-        <Select value={filterStaff} onChange={setFilterStaff} options={[{value:"all",label:"Staff"},{value:"PAM",label:"PAM"},{value:"AIR",label:"AIR"}]} />
-        <Select value={filterCampaign} onChange={setFilterCampaign} options={[{value:"all",label:"Campaign"},...CAMPAIGN_MAP.map(c=>({value:c.id,label:c.label}))]} />
-        {(filterPlatform!=="all"||filterStaff!=="all"||filterCampaign!=="all") && (
-          <button onClick={()=>{setFilterPlatform("all");setFilterStaff("all");setFilterCampaign("all");}}
-            style={{background:"none",border:"none",color:"#EF4444",fontSize:12,cursor:"pointer",padding:"4px 2px"}}>✕ ล้าง</button>
-        )}
-        <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8 }}>
-          {pastCount > 0 && (
-            <button onClick={() => setShowPast(p => !p)} style={{
-              background: "none", border: `1px solid ${T.border}`, borderRadius: 6,
-              padding: "5px 10px", fontSize: 11, cursor: "pointer", color: T.sub,
-            }}>
-              {showPast ? "ซ่อนที่ผ่านแล้ว" : `+ ผ่านแล้ว (${pastCount})`}
-            </button>
+      <div style={{ background: T.bg, borderBottom: `1px solid ${T.border}`, position: "sticky", top: 56, zIndex: 9 }}>
+        <div style={{ display: "flex", gap: 6, alignItems: "center", padding: "8px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+          <Select value={filterPlatform} onChange={setFilterPlatform} options={[{value:"all",label:"Platform"},{value:"Shopee",label:"Shopee"},{value:"TikTok",label:"TikTok"}]} />
+          <Select value={filterStaff} onChange={setFilterStaff} options={[{value:"all",label:"Staff"},{value:"WA",label:"WA"},{value:"AIR",label:"AIR"}]} />
+          <Select value={filterCampaign} onChange={setFilterCampaign} options={[{value:"all",label:"Campaign"},...CAMPAIGN_MAP.map(c=>({value:c.id,label:c.label}))]} />
+          {(filterPlatform!=="all"||filterStaff!=="all"||filterCampaign!=="all") && (
+            <button onClick={()=>{setFilterPlatform("all");setFilterStaff("all");setFilterCampaign("all");}}
+              style={{ background:"none", border:`1px solid #EF4444`, color:"#EF4444", fontSize:12, cursor:"pointer", padding:"6px 10px", borderRadius:6, whiteSpace:"nowrap", flexShrink:0 }}>✕ ล้าง</button>
           )}
-          <span style={{ fontSize: 11, color: T.muted }}>{filtered.length} sessions</span>
+          <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+            {pastCount > 0 && (
+              <button onClick={() => setShowPast(p => !p)} style={{
+                background: showPast ? T.text : "none",
+                color: showPast ? "white" : T.sub,
+                border: `1px solid ${T.border}`, borderRadius: 6,
+                padding: "6px 10px", fontSize: 11, cursor: "pointer", whiteSpace: "nowrap",
+              }}>
+                {showPast ? "ซ่อนที่ผ่านแล้ว" : `+ ผ่านแล้ว (${pastCount})`}
+              </button>
+            )}
+            <span style={{ fontSize: 11, color: T.muted, whiteSpace: "nowrap" }}>{filtered.length} sessions</span>
+          </div>
         </div>
       </div>
 
@@ -560,8 +584,8 @@ const PROMOS = [
     accent: "#C9B06A",
     bg: "linear-gradient(135deg, #EEF2FF 0%, #FFF8E7 100%)",
     badge: "🎯 ไลฟ์เอ็กซ์คลูซีฟ",
-    condition: "ซื้อครบ 599 บาท",
-    reward: "รับฟรี! กระเป๋าผ้า Macnuts จำกัด Live ละ 2 ใบ",
+    condition: "ซื้อครบ 700 บาท",
+    reward: "รับฟรี! แก้วเก็บความเย็น Macnuts",
     rewardDetail: "เลือกได้ทั้ง 2 สี (ดำ / ขาว)",
     remark: "🛍🎵 แถมทั้ง Shopee Live และ TikTok Live · 8–10 ส.ค. 69 เท่านั้น · แจกกระเป๋าผ้า Live ละ 2 ใบ",
     icon: "🎁",
