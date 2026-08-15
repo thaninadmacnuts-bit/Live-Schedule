@@ -8,7 +8,7 @@ const RAW_DATA = [
   { staff: "AIR", platform: "Shopee", topic: "8.8 โค้ดเด็ด เริ่มแล้ว!!! Cold Brew", date: "2026-08-08", startLive: "21:00", endLive: "00:30" },
   { staff: "AIR", platform: "TikTok", topic: "Cold Drip Payday",                   date: "2026-08-08", startLive: "23:00", endLive: "00:30" },
   { staff: "AIR", platform: "TikTok", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!",     date: "2026-08-11", startLive: "20:30", endLive: "23:00" },
-  { staff: "AIR", platform: "TikTok", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!",     date: "2026-08-15", startLive: "20:30", endLive: "23:00" },
+  { staff: "AIR", platform: "TikTok", topic: "Macnuts Cold Brew ลดต่อ 8.8!!!",     date: "2026-08-15", startLive: "22:00", endLive: "00:00" },
   { staff: "BM", platform: "Shopee", topic: "15.8 โค้ดลดแรง รีบช้อป!!!",         date: "2026-08-14", startLive: "20:00", endLive: "22:00" },
   { staff: "BM", platform: "Shopee", topic: "15.8 โค้ดลดแรง รีบช้อป!!!",         date: "2026-08-15", startLive: "20:00", endLive: "22:00" },
   { staff: "BM", platform: "Shopee", topic: "ต่อเวลา 15.8 โค้ดลดแรง",            date: "2026-08-16", startLive: "20:00", endLive: "22:00" },
