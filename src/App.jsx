@@ -21,9 +21,10 @@ const PLATFORMS = [
 ];
 
 const TIME_SLOTS = [
-  { id: "t1", label: "20:00–22:00" },
-  { id: "t2", label: "22:00–00:00" },
-  { id: "t3", label: "23:00–01:00" },
+  { id: "t1", label: "19:00–21:00" },
+  { id: "t2", label: "20:00–22:00" },
+  { id: "t3", label: "22:00–00:00" },
+  { id: "t4", label: "23:00–01:00" },
 ];
 
 const DAY_NAMES = ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"];
