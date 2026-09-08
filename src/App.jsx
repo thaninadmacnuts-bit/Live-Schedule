@@ -215,11 +215,20 @@ export default function App() {
   const firstDay    = getFirstDayOfWeek(YEAR, MONTH);
 
   // dayData[date] = { sessions: [{platform, time}], note, promo }
-  const [dayData, setDayData] = useState({});
-  const [editing, setEditing]  = useState(null); // date number or null
+  const [dayData, setDayData] = useState(() => {
+    try {
+      const saved = localStorage.getItem("gaam-calendar-sep2026");
+      return saved ? JSON.parse(saved) : {};
+    } catch { return {}; }
+  });
+  const [editing, setEditing] = useState(null);
 
   function saveDay(date, data) {
-    setDayData(prev => ({ ...prev, [date]: data }));
+    setDayData(prev => {
+      const next = { ...prev, [date]: data };
+      try { localStorage.setItem("gaam-calendar-sep2026", JSON.stringify(next)); } catch {}
+      return next;
+    });
     setEditing(null);
   }
 
