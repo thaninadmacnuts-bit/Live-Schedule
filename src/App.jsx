@@ -37,8 +37,8 @@ function getFirstDayOfWeek(y, m) {
   return new Date(y, m, 1).getDay();
 }
 
-const NAVY = "#0B2447";
-const GOLD = "#C9B06A";
+const NAVY = "#034ea2";
+const GOLD = "#e3b53d";
 
 // Modal for editing a day's sessions
 function DayModal({ date, data, onClose, onSave }) {
@@ -157,7 +157,7 @@ function DayCell({ date, data, onClick }) {
 
   return (
     <div onClick={onClick} style={{
-      minHeight: 80,
+      minHeight: 90,
       background: isToday ? "#FFFBEB" : "#fff",
       borderRadius: 10,
       border: isToday ? `2px solid ${GOLD}` : "1px solid #EBEBEB",
@@ -195,15 +195,29 @@ function DayCell({ date, data, onClick }) {
         );
       })}
 
-      {/* Promo dot */}
+      {/* Promo */}
       {data.promo && (
-        <div style={{ position: "absolute", top: 5, right: 5, width: 6, height: 6, borderRadius: "50%", background: GOLD }} />
+        <div style={{
+          marginTop: 3, fontSize: 9, fontWeight: 700, color: "#92400E",
+          background: "#FEF3C7", borderRadius: 4, padding: "2px 5px",
+          overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+          display: "flex", alignItems: "center", gap: 3,
+        }}>
+          <span>🎁</span>
+          <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{data.promo}</span>
+        </div>
       )}
 
-      {/* Note indicator */}
+      {/* Note */}
       {data.note && (
-        <div style={{ fontSize: 9, color: "#999", marginTop: 2, lineHeight: 1.3, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 1, WebkitBoxOrient: "vertical" }}>
-          {data.note}
+        <div style={{
+          marginTop: 2, fontSize: 9, color: "#555",
+          background: "#F5F5F5", borderRadius: 4, padding: "2px 5px",
+          overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+          display: "flex", alignItems: "center", gap: 3,
+        }}>
+          <span>📝</span>
+          <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{data.note}</span>
         </div>
       )}
     </div>
