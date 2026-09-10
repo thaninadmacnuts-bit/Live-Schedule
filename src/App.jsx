@@ -499,3 +499,226 @@ export default function App() {
     </div>
   );
 }
+{
+  "3": {
+    "sessions": [
+      {
+        "platform": "shopee",
+        "time": "t1"
+      }
+    ],
+    "note": "แอดมินเทสๆๆๆๆๆ",
+    "promo": "MINI TEST"
+  },
+  "7": {
+    "sessions": [
+      {
+        "platform": "shopee",
+        "time": "t2"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "8": {
+    "sessions": [
+      {
+        "platform": "shopee",
+        "time": "t2"
+      },
+      {
+        "platform": "shopee",
+        "time": "t4"
+      }
+    ],
+    "note": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์",
+    "promo": "599 ฟรีกระเป๋า 4 ใบ (สีละ 2) / 99 ฟรีแก้วเชรคเกอร์"
+  },
+  "9": {
+    "sessions": [
+      {
+        "platform": "shopee",
+        "time": "t2"
+      }
+    ],
+    "note": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์",
+    "promo": "599 ฟรีกระเป๋า 4 ใบ (สีละ 2) / 99 ฟรีแก้วเชรคเกอร์"
+  },
+  "10": {
+    "sessions": [
+      {
+        "platform": "shopee",
+        "time": "t2"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "11": {
+    "sessions": [
+      {
+        "platform": "tiktok",
+        "time": "t3"
+      }
+    ],
+    "note": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์",
+    "promo": "\"โปรวันแม่\" 199.- ฟรีแก้วเชรคเกอร์"
+  },
+  "12": {
+    "sessions": [
+      {
+        "platform": "tiktok",
+        "time": "t3"
+      }
+    ],
+    "note": "",
+    "promo": "\"โปรวันแม่\" 199.- ฟรีแก้วเชรคเกอร์"
+  },
+  "13": {
+    "sessions": [
+      {
+        "platform": "tiktok",
+        "time": "t3"
+      }
+    ],
+    "note": "",
+    "promo": "\"โปรวันแม่\" 199.- ฟรีแก้วเชรคเกอร์"
+  },
+  "14": {
+    "sessions": [
+      {
+        "platform": "shopee",
+        "time": "t2"
+      },
+      {
+        "platform": "shopee",
+        "time": "t4"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "18": {
+    "sessions": [
+      {
+        "platform": "tiktok",
+        "time": "t3"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "20": {
+    "sessions": [
+      {
+        "platform": "tiktok",
+        "time": "t3"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "21": {
+    "sessions": [
+      {
+        "platform": "shopee",
+        "time": "t2"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "22": {
+    "sessions": [
+      {
+        "platform": "shopee",
+        "time": "t1"
+      },
+      {
+        "platform": "tiktok",
+        "time": "t3"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "23": {
+    "sessions": [
+      {
+        "platform": "shopee",
+        "time": "t2"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "24": {
+    "sessions": [
+      {
+        "platform": "tiktok",
+        "time": "t1"
+      },
+      {
+        "platform": "shopee",
+        "time": "t4"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "25": {
+    "sessions": [
+      {
+        "platform": "shopee",
+        "time": "t2"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "27": {
+    "sessions": [
+      {
+        "platform": "tiktok",
+        "time": "t3"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "28": {
+    "sessions": [
+      {
+        "platform": "shopee",
+        "time": "t1"
+      },
+      {
+        "platform": "tiktok",
+        "time": "t3"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "29": {
+    "sessions": [
+      {
+        "platform": "tiktok",
+        "time": "t2"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "30": {
+    "sessions": [
+      {
+        "platform": "shopee",
+        "time": "t2"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  }
+}
+
