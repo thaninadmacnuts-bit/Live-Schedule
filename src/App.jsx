@@ -26,8 +26,9 @@ const PLATFORMS = [
 const TIME_SLOTS = [
   { id: "t1", label: "19:00–21:00" },
   { id: "t2", label: "20:00–22:00" },
-  { id: "t3", label: "22:00–00:00" },
-  { id: "t4", label: "23:00–01:00" },
+  { id: "t3", label: "21:00–23:00" },
+  { id: "t4", label: "22:00–00:00" },
+  { id: "t5", label: "23:00–01:00" },
 ];
 
 const DAY_NAMES = ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"];
@@ -35,14 +36,9 @@ const MONTH_NAMES = ["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.
 
 const STATIC_DATA = {
   "3": {
-    "sessions": [
-      {
-        "platform": "shopee",
-        "time": "t1"
-      }
-    ],
-    "note": "แอดมินเทสๆๆๆๆๆ",
-    "promo": "MINI TEST"
+    "sessions": [],
+    "note": "",
+    "promo": ""
   },
   "7": {
     "sessions": [
@@ -96,7 +92,7 @@ const STATIC_DATA = {
       }
     ],
     "note": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์",
-    "promo": "\"โปรวันแม่\" 199.- ฟรีแก้วเชรคเกอร์"
+    "promo": "\"ฟรีแก้วเชรคเกอร์ 199.-"
   },
   "12": {
     "sessions": [
@@ -105,8 +101,8 @@ const STATIC_DATA = {
         "time": "t3"
       }
     ],
-    "note": "",
-    "promo": "\"โปรวันแม่\" 199.- ฟรีแก้วเชรคเกอร์"
+    "note": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์",
+    "promo": "ฟรีแก้วเชรคเกอร์ 299.-"
   },
   "13": {
     "sessions": [
@@ -115,28 +111,44 @@ const STATIC_DATA = {
         "time": "t3"
       }
     ],
-    "note": "",
-    "promo": "\"โปรวันแม่\" 199.- ฟรีแก้วเชรคเกอร์"
+    "note": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์",
+    "promo": "ฟรีแก้วเชรคเกอร์ 299.-"
   },
   "14": {
     "sessions": [
       {
         "platform": "shopee",
         "time": "t2"
-      },
-      {
-        "platform": "shopee",
-        "time": "t4"
       }
     ],
-    "note": "",
-    "promo": ""
+    "note": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์",
+    "promo": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์"
+  },
+  "15": {
+    "sessions": [
+      {
+        "platform": "tiktok",
+        "time": "t2"
+      }
+    ],
+    "note": "บางสินค้า\n",
+    "promo": "ประมูลสินค้าในไลฟ์"
   },
   "18": {
     "sessions": [
       {
         "platform": "tiktok",
         "time": "t3"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "19": {
+    "sessions": [
+      {
+        "platform": "tiktok",
+        "time": "t2"
       }
     ],
     "note": "",
@@ -254,7 +266,7 @@ const STATIC_DATA = {
     "note": "",
     "promo": ""
   }
-};
+}
 
 function getDaysInMonth(y, m) {
   return new Date(y, m + 1, 0).getDate();
