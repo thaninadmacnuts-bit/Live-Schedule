@@ -650,7 +650,7 @@ export default function App() {
               fontSize: 10, fontWeight: 700, borderRadius: 6, padding: "3px 8px",
               background: isAdmin ? "#FEF3C7" : "#EEF2FF",
               color: isAdmin ? "#92400E" : "#3730A3",
-            }}>{isAdmin ? "✏️ แก้ไขได้" : "👁 ดูอย่างเดียว"}</span>
+            }}>{isAdmin ? "✏️ แก้ไขได้" : "👁"}</span>
           </div>
         </div>
 
