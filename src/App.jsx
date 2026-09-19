@@ -35,6 +35,7 @@ const DAY_NAMES = ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"];
 const MONTH_NAMES = ["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."];
 
 const STATIC_DATA = {
+{
   "3": {
     "sessions": [],
     "note": "",
@@ -177,16 +178,12 @@ const STATIC_DATA = {
   "22": {
     "sessions": [
       {
-        "platform": "shopee",
-        "time": "t1"
-      },
-      {
         "platform": "tiktok",
-        "time": "t3"
+        "time": "t2"
       }
     ],
-    "note": "",
-    "promo": ""
+    "note": "บางสินค้า\n",
+    "promo": "ประมูลสินค้าในไลฟ์"
   },
   "23": {
     "sessions": [
@@ -201,12 +198,8 @@ const STATIC_DATA = {
   "24": {
     "sessions": [
       {
-        "platform": "tiktok",
-        "time": "t1"
-      },
-      {
         "platform": "shopee",
-        "time": "t4"
+        "time": "t1"
       }
     ],
     "note": "",
@@ -222,11 +215,29 @@ const STATIC_DATA = {
     "note": "",
     "promo": ""
   },
-  "27": {
+  "26": {
     "sessions": [
       {
         "platform": "tiktok",
-        "time": "t3"
+        "time": "t2"
+      },
+      {
+        "platform": "tiktok",
+        "time": "t4"
+      }
+    ],
+    "note": "",
+    "promo": ""
+  },
+  "27": {
+    "sessions": [
+      {
+        "platform": "shopee",
+        "time": "t1"
+      },
+      {
+        "platform": "tiktok",
+        "time": "t4"
       }
     ],
     "note": "",
@@ -236,11 +247,7 @@ const STATIC_DATA = {
     "sessions": [
       {
         "platform": "shopee",
-        "time": "t1"
-      },
-      {
-        "platform": "tiktok",
-        "time": "t3"
+        "time": "t2"
       }
     ],
     "note": "",
@@ -250,7 +257,11 @@ const STATIC_DATA = {
     "sessions": [
       {
         "platform": "tiktok",
-        "time": "t2"
+        "time": "t1"
+      },
+      {
+        "platform": "shopee",
+        "time": "t4"
       }
     ],
     "note": "",
