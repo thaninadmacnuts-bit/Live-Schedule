@@ -292,59 +292,6 @@ function ViewModal({ m, date, data, onClose, onTag }) {
   );
 }
 
-// ---------- Week view (การ์ดเต็มความกว้าง อ่านง่ายบนมือถือ) ----------
-function WeekView({ m, week, idx, total, setIdx, monthData, onDay, onTag }) {
-  const dates = week.filter(Boolean);
-  const navBtn = (dis) => ({
-    background: dis ? "#F0F0EE" : NAVY, color: dis ? "#bbb" : "#fff", border: "none",
-    borderRadius: 10, width: 40, height: 40, fontSize: 20, cursor: dis ? "default" : "pointer", fontWeight: 800,
-  });
-  return (
-    <div>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
-        <button disabled={idx === 0} onClick={() => setIdx(idx - 1)} style={navBtn(idx === 0)}>‹</button>
-        <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: 16, fontWeight: 800, color: NAVY }}>{dates[0]}–{dates[dates.length - 1]} {MONTH_NAMES[m]} {BE}</div>
-          <div style={{ fontSize: 11, color: "#999" }}>สัปดาห์ที่ {idx + 1} / {total}</div>
-        </div>
-        <button disabled={idx === total - 1} onClick={() => setIdx(idx + 1)} style={navBtn(idx === total - 1)}>›</button>
-      </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        {dates.map(date => {
-          const w = dow(m, date);
-          const wk = w === 0 || w === 6;
-          const today = isTodayFn(m, date);
-          const v = monthData[date] || {};
-          const has = v.sessions?.length > 0 || v.promo || v.note;
-          return (
-            <div key={date} onClick={() => onDay(date)} style={{
-              display: "flex", gap: 12, padding: "12px 14px", borderRadius: 14, cursor: "pointer",
-              background: today ? "#FFFBEB" : wk ? "#FFF8F8" : "#fff",
-              border: today ? `2px solid ${GOLD}` : wk ? "1px solid #FDDCB5" : "1px solid #EBEBEB",
-              boxShadow: "0 2px 10px rgba(11,36,71,0.05)",
-            }}>
-              <div style={{ width: 44, textAlign: "center", flexShrink: 0 }}>
-                <div style={{ fontSize: 24, fontWeight: 800, lineHeight: 1, color: today ? GOLD : wk ? "#EF4444" : NAVY }}>{date}</div>
-                <div style={{ fontSize: 11, color: "#999", marginTop: 3 }}>{DAY_NAMES[w]}</div>
-              </div>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                {!has && <div style={{ fontSize: 12, color: "#ccc", paddingTop: 6 }}>ไม่มีไลฟ์</div>}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
-                  {(v.sessions || []).map((x, i) => (
-                    <TagChip key={i} kind={x.platform} size={12} onTag={onTag} label={`${tagInfo(x.platform).label} · ${timeLabel(x.time)}`} />
-                  ))}
-                </div>
-                {v.promo && <div style={{ marginTop: 2 }}><TagChip kind="promo" size={12} block full onTag={onTag} label={v.promo} /></div>}
-                {v.note && <div style={{ fontSize: 12, color: "#666", marginTop: 4 }}>📝 {v.note.trim()}</div>}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
 // ---------- ช่องวันใน Month grid ----------
 function DayCell({ m, date, data, onClick, onTag }) {
   const w = dow(m, date);
@@ -370,21 +317,12 @@ function DayCell({ m, date, data, onClick, onTag }) {
   );
 }
 
-const buildWeeks = (m) => {
+const buildCells = (m) => {
   const cells = [];
   for (let i = 0; i < firstDow(m); i++) cells.push(null);
   for (let x = 1; x <= daysIn(m); x++) cells.push(x);
   while (cells.length % 7 !== 0) cells.push(null);
-  const weeks = [];
-  for (let i = 0; i < cells.length; i += 7) weeks.push(cells.slice(i, i + 7));
-  return { cells, weeks };
-};
-
-const initialWeek = (m) => {
-  const n = new Date();
-  if (n.getFullYear() !== YEAR || n.getMonth() !== m) return 0;
-  const i = buildWeeks(m).weeks.findIndex(w => w.includes(n.getDate()));
-  return i < 0 ? 0 : i;
+  return cells;
 };
 
 export default function App() {
@@ -405,7 +343,6 @@ export default function App() {
     const n = new Date();
     return n.getFullYear() === YEAR && MONTHS.includes(n.getMonth()) ? n.getMonth() : MONTHS[0];
   });
-  const [weekIdx, setWeekIdx] = useState(() => initialWeek(month));
   const [viewDay, setViewDay] = useState(null);
   const [editDay, setEditDay] = useState(null);
   const [listKind, setListKind] = useState(null);
@@ -413,11 +350,10 @@ export default function App() {
   const [exported, setExported] = useState(false);
 
   const monthData = store[mkey(month)] || {};
-  const { cells, weeks } = buildWeeks(month);
+  const cells = buildCells(month);
 
   function setMonth(m) {
     setMonthState(m);
-    setWeekIdx(initialWeek(m));
     setListKind(null); setViewDay(null); setEditDay(null);
   }
   const openDay = (date) => (isAdmin ? setEditDay(date) : setViewDay(date));
@@ -432,15 +368,25 @@ export default function App() {
     setTimeout(() => setSaving(false), 600);
   }
 
-  // Export ข้อมูลทุกเดือน → นำไปวางแทน STATIC_DATA เพื่อให้ผู้ชมทุกคนเห็น
+  // Export: ได้ไฟล์ .js ที่มี STATIC_DATA พร้อมวางแทนในโค้ด แล้ว deploy ใหม่ → ผู้ชมทุกคนเห็น
   function exportJSON() {
-    const blob = new Blob([JSON.stringify(store, null, 2)], { type: "application/json" });
+    const text = "const STATIC_DATA = " + JSON.stringify(store, null, 2) + ";\n";
+    const blob = new Blob([text], { type: "text/javascript" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    a.href = url; a.download = "gaam-2026.json"; a.click();
+    a.href = url; a.download = "gaam-static-data.js"; a.click();
     URL.revokeObjectURL(url);
     setExported(true);
     setTimeout(() => setExported(false), 2000);
+  }
+
+  // Admin: ล้างค่าที่แก้ไว้ในเครื่อง กลับไปใช้ STATIC_DATA ที่ deploy อยู่
+  function resetLocal() {
+    if (!window.confirm("ล้างข้อมูลที่แก้ไว้ในเครื่องนี้ และกลับไปใช้ข้อมูลที่ deploy อยู่?")) return;
+    try { localStorage.removeItem(STORAGE_KEY); } catch {}
+    const fresh = {};
+    MONTHS.forEach(m => { fresh[mkey(m)] = { ...(STATIC_DATA[mkey(m)] || {}) }; });
+    setStore(fresh);
   }
 
   // Stats (เดือนที่เปิดอยู่)
@@ -476,6 +422,9 @@ export default function App() {
                 <div style={{ fontSize: 9, color: "rgba(255,255,255,0.45)", marginTop: 2 }}>{st.label}</div>
               </div>
             ))}
+            {isAdmin && (
+              <button onClick={resetLocal} title="ล้างค่าที่แก้ไว้ในเครื่อง" style={{ background: "rgba(255,255,255,0.12)", color: "#fff", border: "none", borderRadius: 7, padding: "6px 8px", fontWeight: 800, cursor: "pointer", fontSize: 11 }}>↺</button>
+            )}
             {isAdmin && (
               <button onClick={exportJSON} style={{ background: exported ? "#16A34A" : GOLD, color: NAVY, border: "none", borderRadius: 7, padding: "6px 10px", fontWeight: 800, cursor: "pointer", fontSize: 11 }}>
                 {exported ? "✓ โหลดแล้ว" : "⬇ Export"}
@@ -513,13 +462,8 @@ export default function App() {
           </div>
         </div>
 
-        {/* Week view */}
-        <WeekView m={month} week={weeks[weekIdx]} idx={weekIdx} total={weeks.length} setIdx={setWeekIdx}
-          monthData={monthData} onDay={openDay} onTag={setListKind} />
-
         {/* Month grid — เลื่อนซ้าย-ขวาได้บนมือถือ ช่องไม่ถูกบีบ */}
-        <div style={{ fontSize: 11, fontWeight: 700, color: "#666", letterSpacing: 1, margin: "28px 0 4px" }}>ปฏิทินทั้งเดือน</div>
-        <div style={{ fontSize: 11, color: "#aaa", marginBottom: 10 }}>เลื่อนซ้าย-ขวาเพื่อดูทุกวัน</div>
+        <div style={{ fontSize: 11, color: "#aaa", marginBottom: 8 }}>เลื่อนซ้าย-ขวาเพื่อดูทุกวัน</div>
         <div style={{ background: "#fff", borderRadius: 16, overflow: "hidden", boxShadow: "0 4px 24px rgba(11,36,71,0.08)", border: "1px solid #E8E8E8" }}>
           <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
             <div style={{ minWidth: 740 }}>
@@ -531,12 +475,46 @@ export default function App() {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 4, padding: 4, background: "#F0EFED" }}>
                 {cells.map((date, i) => date ? (
                   <DayCell key={i} m={month} date={date} data={monthData[date] || {}}
-                    onClick={() => { setWeekIdx(weeks.findIndex(w => w.includes(date))); openDay(date); }} onTag={setListKind} />
+                    onClick={() => openDay(date)} onTag={setListKind} />
                 ) : <div key={i} style={{ minHeight: 80 }} />)}
               </div>
             </div>
           </div>
         </div>
+
+        {/* สรุปไลฟ์ทั้งหมด */}
+        {sess.length > 0 && (
+          <div style={{ marginTop: 20 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "#666", textTransform: "uppercase", letterSpacing: 1, marginBottom: 10 }}>สรุปไลฟ์ทั้งหมด · {MONTH_FULL[month]}</div>
+            <div style={{ background: "#fff", borderRadius: 12, border: "1px solid #EBEBEB", overflow: "hidden" }}>
+              {Object.entries(monthData)
+                .filter(([, v]) => v.sessions && v.sessions.length > 0)
+                .sort(([a], [b]) => Number(a) - Number(b))
+                .map(([date, v]) => {
+                  const w = dow(month, Number(date));
+                  const wk = w === 0 || w === 6;
+                  return (
+                    <div key={date} onClick={() => openDay(Number(date))}
+                      style={{ display: "flex", alignItems: "flex-start", gap: 12, padding: "12px 16px", borderBottom: "1px solid #F5F5F5", cursor: "pointer" }}>
+                      <div style={{ textAlign: "center", flexShrink: 0, width: 36 }}>
+                        <div style={{ fontSize: 18, fontWeight: 800, color: wk ? "#EF4444" : NAVY, lineHeight: 1 }}>{date}</div>
+                        <div style={{ fontSize: 10, color: "#999", marginTop: 1 }}>{DAY_NAMES[w]}</div>
+                      </div>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: v.promo || v.note ? 6 : 0 }}>
+                          {v.sessions.map((x, i) => (
+                            <TagChip key={i} kind={x.platform} size={12} onTag={setListKind} label={`${tagInfo(x.platform).label} · ${timeLabel(x.time)}`} />
+                          ))}
+                        </div>
+                        {v.promo && <TagChip kind="promo" size={12} onTag={setListKind} label={v.promo} />}
+                        {v.note && <div style={{ fontSize: 12, color: "#666" }}>📝 {v.note.trim()}</div>}
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+        )}
 
         {!isAdmin && <div style={{ marginTop: 24, textAlign: "center", fontSize: 11, color: "#bbb" }}>ตารางนี้จัดทำโดยทีม Macnuts Coffee 🐻</div>}
       </div>
