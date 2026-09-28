@@ -46,33 +46,250 @@ const BID = "ประมูลสินค้าในไลฟ์";
 
 const STATIC_DATA = {
   "2026-09": {
-    3: d([]),
-    7: d([s("shopee", "t2")]),
-    8: d([s("shopee", "t2"), s("shopee", "t4")], CF, P8),
-    9: d([s("shopee", "t2")], CF, P8),
-    10: d([s("shopee", "t2")]),
-    11: d([s("tiktok", "t3")], CF, "\"ฟรีแก้วเชรคเกอร์ 199.-"),
-    12: d([s("tiktok", "t3")], CF, "ฟรีแก้วเชรคเกอร์ 299.-"),
-    13: d([s("tiktok", "t3")], CF, "ฟรีแก้วเชรคเกอร์ 299.-"),
-    14: d([s("shopee", "t2")], CF, CF),
-    15: d([s("tiktok", "t2")], "บางสินค้า\n", BID),
-    18: d([s("tiktok", "t3")]),
-    19: d([s("tiktok", "t2")]),
-    20: d([s("tiktok", "t3")]),
-    21: d([s("shopee", "t2")]),
-    22: d([s("tiktok", "t2")], "บางสินค้า\n", BID),
-    23: d([s("shopee", "t2")]),
-    24: d([s("shopee", "t1")]),
-    25: d([s("shopee", "t2")]),
-    26: d([s("tiktok", "t2"), s("tiktok", "t4")]),
-    27: d([s("shopee", "t1"), s("tiktok", "t4")]),
-    28: d([s("shopee", "t2")]),
-    29: d([s("tiktok", "t1"), s("shopee", "t4")]),
-    30: d([s("shopee", "t2")]),
+    "3": {
+      "sessions": [],
+      "note": "",
+      "promo": ""
+    },
+    "7": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "8": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "shopee",
+          "time": "t4"
+        }
+      ],
+      "note": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์",
+      "promo": "599 ฟรีกระเป๋า 4 ใบ (สีละ 2) / 99 ฟรีแก้วเชรคเกอร์"
+    },
+    "9": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        }
+      ],
+      "note": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์",
+      "promo": "599 ฟรีกระเป๋า 4 ใบ (สีละ 2) / 99 ฟรีแก้วเชรคเกอร์"
+    },
+    "10": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "11": {
+      "sessions": [
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์",
+      "promo": "\"ฟรีแก้วเชรคเกอร์ 199.-"
+    },
+    "12": {
+      "sessions": [
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์",
+      "promo": "ฟรีแก้วเชรคเกอร์ 299.-"
+    },
+    "13": {
+      "sessions": [
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์",
+      "promo": "ฟรีแก้วเชรคเกอร์ 299.-"
+    },
+    "14": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        }
+      ],
+      "note": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์",
+      "promo": "คอมเม้นต์ คอนเฟิร์มออเดอร์ในไลฟ์"
+    },
+    "15": {
+      "sessions": [
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "บางสินค้า\n",
+      "promo": "ประมูลสินค้าในไลฟ์"
+    },
+    "18": {
+      "sessions": [
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "19": {
+      "sessions": [
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "20": {
+      "sessions": [
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "21": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "22": {
+      "sessions": [
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "บางสินค้า\n",
+      "promo": "ประมูลสินค้าในไลฟ์"
+    },
+    "23": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "24": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t1"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "25": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "26": {
+      "sessions": [],
+      "note": "",
+      "promo": ""
+    },
+    "27": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t1"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t5"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "28": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "29": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t1"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
+        }
+      ],
+      "note": "Shopee 19:00 20:00 หรือ 19:00-20:30 คู่ TikTok (1st Step)\nหรือ อาจะเริ่มประมูล TikTok ตามจำนวนลูกค้า",
+      "promo": ""
+    },
+    "30": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    }
   },
   "2026-10": {},
   "2026-11": {},
-  "2026-12": {},
+  "2026-12": {}
 };
 
 const STORAGE_KEY = "gaam-calendar-2026";
