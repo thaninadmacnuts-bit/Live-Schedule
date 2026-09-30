@@ -287,7 +287,386 @@ const STATIC_DATA = {
       "promo": ""
     }
   },
-  "2026-10": {},
+  "2026-10": {
+    "1": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "2": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t3"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "3": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t3"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "4": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t3"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "5": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "6": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t1"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t1"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "8": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "9": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        },
+        {
+          "platform": "shopee",
+          "time": "t5"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t5"
+        }
+      ],
+      "note": "Pre Pay Day 10.10",
+      "promo": "ครบ 650.- Free Tote Bag สีขาว 2 ใบ"
+    },
+    "10": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        },
+        {
+          "platform": "shopee",
+          "time": "t4"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
+        }
+      ],
+      "note": "Pay Day 10.10",
+      "promo": "ครบ 650.- Free Tote Bag สีขาว 2 ใบ"
+    },
+    "11": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "After Pay Day 10.10",
+      "promo": "ครบ 650.- Free Tote Bag สีขาว 2 ใบ"
+    },
+    "12": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "13": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t1"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t1"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "ประมูล TikTok 21:00 - 23:00",
+      "promo": ""
+    },
+    "14": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t5"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t5"
+        }
+      ],
+      "note": "Pre Mid - Month",
+      "promo": ""
+    },
+    "15": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "16": {
+      "sessions": [
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "19": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "20": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t1"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t1"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "ประมูล TikTok 21:00 - 23:00",
+      "promo": ""
+    },
+    "22": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "23": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t3"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t5"
+        }
+      ],
+      "note": "Pre End of Month 25.10",
+      "promo": ""
+    },
+    "24": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t4"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
+        }
+      ],
+      "note": "Pre End of Month 25.10",
+      "promo": ""
+    },
+    "25": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t3"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "Pre End of Month 25.10",
+      "promo": ""
+    },
+    "26": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "27": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t1"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t1"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "ประมูล TikTok 21:00 - 23:00",
+      "promo": ""
+    },
+    "29": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "30": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    }
+  },
   "2026-11": {},
   "2026-12": {}
 };
