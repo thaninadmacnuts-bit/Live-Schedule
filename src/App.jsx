@@ -317,30 +317,12 @@ const STATIC_DATA = {
       "promo": ""
     },
     "3": {
-      "sessions": [
-        {
-          "platform": "shopee",
-          "time": "t3"
-        },
-        {
-          "platform": "tiktok",
-          "time": "t3"
-        }
-      ],
+      "sessions": [],
       "note": "",
       "promo": ""
     },
     "4": {
-      "sessions": [
-        {
-          "platform": "shopee",
-          "time": "t3"
-        },
-        {
-          "platform": "tiktok",
-          "time": "t3"
-        }
-      ],
+      "sessions": [],
       "note": "",
       "promo": ""
     },
@@ -373,20 +355,11 @@ const STATIC_DATA = {
           "time": "t3"
         }
       ],
-      "note": "",
+      "note": "ประมูล TikTok 21:00 - 23:00",
       "promo": ""
     },
     "8": {
-      "sessions": [
-        {
-          "platform": "shopee",
-          "time": "t2"
-        },
-        {
-          "platform": "tiktok",
-          "time": "t2"
-        }
-      ],
+      "sessions": [],
       "note": "",
       "promo": ""
     },
@@ -443,6 +416,14 @@ const STATIC_DATA = {
         {
           "platform": "tiktok",
           "time": "t2"
+        },
+        {
+          "platform": "shopee",
+          "time": "t4"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
         }
       ],
       "note": "After Pay Day 10.10",
@@ -452,10 +433,6 @@ const STATIC_DATA = {
       "sessions": [
         {
           "platform": "shopee",
-          "time": "t2"
-        },
-        {
-          "platform": "tiktok",
           "time": "t2"
         }
       ],
@@ -511,6 +488,10 @@ const STATIC_DATA = {
     "16": {
       "sessions": [
         {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
           "platform": "tiktok",
           "time": "t2"
         }
@@ -518,15 +499,25 @@ const STATIC_DATA = {
       "note": "",
       "promo": ""
     },
-    "19": {
+    "18": {
       "sessions": [
         {
-          "platform": "shopee",
+          "platform": "tiktok",
           "time": "t2"
         },
         {
           "platform": "tiktok",
-          "time": "t2"
+          "time": "t4"
+        }
+      ],
+      "note": "ประมูล TikTok",
+      "promo": ""
+    },
+    "19": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t1"
         }
       ],
       "note": "",
@@ -551,16 +542,7 @@ const STATIC_DATA = {
       "promo": ""
     },
     "22": {
-      "sessions": [
-        {
-          "platform": "shopee",
-          "time": "t2"
-        },
-        {
-          "platform": "tiktok",
-          "time": "t2"
-        }
-      ],
+      "sessions": [],
       "note": "",
       "promo": ""
     },
@@ -572,7 +554,7 @@ const STATIC_DATA = {
         },
         {
           "platform": "tiktok",
-          "time": "t5"
+          "time": "t3"
         }
       ],
       "note": "Pre End of Month 25.10",
@@ -639,6 +621,11 @@ const STATIC_DATA = {
       "promo": ""
     },
     "29": {
+      "sessions": [],
+      "note": "",
+      "promo": ""
+    },
+    "30": {
       "sessions": [
         {
           "platform": "shopee",
@@ -652,7 +639,7 @@ const STATIC_DATA = {
       "note": "",
       "promo": ""
     },
-    "30": {
+    "31": {
       "sessions": [
         {
           "platform": "shopee",
@@ -670,6 +657,7 @@ const STATIC_DATA = {
   "2026-11": {},
   "2026-12": {}
 };
+
 
 const STORAGE_KEY = "gaam-calendar-2026";
 const mkey = (m) => `${YEAR}-${String(m + 1).padStart(2, "0")}`;
@@ -891,7 +879,7 @@ function ViewModal({ m, date, data, onClose, onTag }) {
 // ---------- ช่องวันใน Month grid ----------
 function DayCell({ m, date, data, onClick, onTag }) {
   const w = dow(m, date);
-  const wk = w === 0 || w === 6;
+  const wk = w === 0 || w === 3;
   const today = isTodayFn(m, date);
   return (
     <div onClick={onClick} style={{
