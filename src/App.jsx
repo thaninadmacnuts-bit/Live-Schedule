@@ -486,14 +486,19 @@ const STATIC_DATA = {
       "promo": ""
     },
     "16": {
+      "sessions": [],
+      "note": "",
+      "promo": ""
+    },
+    "17": {
       "sessions": [
         {
           "platform": "shopee",
-          "time": "t2"
+          "time": "t3"
         },
         {
           "platform": "tiktok",
-          "time": "t2"
+          "time": "t3"
         }
       ],
       "note": "",
@@ -657,7 +662,6 @@ const STATIC_DATA = {
   "2026-11": {},
   "2026-12": {}
 };
-
 
 const STORAGE_KEY = "gaam-calendar-2026";
 const mkey = (m) => `${YEAR}-${String(m + 1).padStart(2, "0")}`;
@@ -1046,25 +1050,6 @@ export default function App() {
           </div>
         </div>
 
-        {/* Month grid — เลื่อนซ้าย-ขวาได้บนมือถือ ช่องไม่ถูกบีบ */}
-        <div style={{ fontSize: 11, color: "#aaa", marginBottom: 8 }}>เลื่อนซ้าย-ขวาเพื่อดูทุกวัน</div>
-        <div style={{ background: "#fff", borderRadius: 16, overflow: "hidden", boxShadow: "0 4px 24px rgba(11,36,71,0.08)", border: "1px solid #E8E8E8" }}>
-          <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
-            <div style={{ minWidth: 740 }}>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", background: NAVY }}>
-                {DAY_NAMES.map((n, i) => (
-                  <div key={n} style={{ padding: "10px 0", textAlign: "center", fontSize: 12, fontWeight: 800, color: (i === 0 || i === 6) ? "#FFB3AD" : GOLD }}>{n}</div>
-                ))}
-              </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 4, padding: 4, background: "#F0EFED" }}>
-                {cells.map((date, i) => date ? (
-                  <DayCell key={i} m={month} date={date} data={monthData[date] || {}}
-                    onClick={() => openDay(date)} onTag={setListKind} />
-                ) : <div key={i} style={{ minHeight: 80 }} />)}
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* สรุปไลฟ์ทั้งหมด */}
         {sess.length > 0 && (
