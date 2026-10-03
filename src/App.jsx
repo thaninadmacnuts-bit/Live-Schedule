@@ -335,9 +335,17 @@ const STATIC_DATA = {
         {
           "platform": "tiktok",
           "time": "t2"
+        },
+        {
+          "platform": "shopee",
+          "time": "t3"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t3"
         }
       ],
-      "note": "",
+      "note": "20:00 - 23:00 ( 3 ชม.)",
       "promo": ""
     },
     "6": {
@@ -430,12 +438,7 @@ const STATIC_DATA = {
       "promo": "ครบ 650.- Free Tote Bag สีขาว 2 ใบ"
     },
     "12": {
-      "sessions": [
-        {
-          "platform": "shopee",
-          "time": "t2"
-        }
-      ],
+      "sessions": [],
       "note": "",
       "promo": ""
     },
@@ -519,12 +522,7 @@ const STATIC_DATA = {
       "promo": ""
     },
     "19": {
-      "sessions": [
-        {
-          "platform": "shopee",
-          "time": "t1"
-        }
-      ],
+      "sessions": [],
       "note": "",
       "promo": ""
     },
@@ -583,6 +581,14 @@ const STATIC_DATA = {
       "sessions": [
         {
           "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        },
+        {
+          "platform": "shopee",
           "time": "t3"
         },
         {
@@ -590,7 +596,7 @@ const STATIC_DATA = {
           "time": "t3"
         }
       ],
-      "note": "Pre End of Month 25.10",
+      "note": "Pre End of Month 25.10\n20:00 - 23:00 ( 3 ชม.)",
       "promo": ""
     },
     "26": {
@@ -662,6 +668,7 @@ const STATIC_DATA = {
   "2026-11": {},
   "2026-12": {}
 };
+
 
 const STORAGE_KEY = "gaam-calendar-2026";
 const mkey = (m) => `${YEAR}-${String(m + 1).padStart(2, "0")}`;
@@ -883,11 +890,11 @@ function ViewModal({ m, date, data, onClose, onTag }) {
 // ---------- ช่องวันใน Month grid ----------
 function DayCell({ m, date, data, onClick, onTag }) {
   const w = dow(m, date);
-  const wk = w === 0 || w === 3;
+  const wk = w === 0 || w === 6;
   const today = isTodayFn(m, date);
   return (
     <div onClick={onClick} style={{
-      minHeight: 104, borderRadius: 12, padding: "6px 7px", cursor: "pointer", overflow: "hidden",
+      minHeight: 90, borderRadius: 12, padding: "6px 7px", cursor: "pointer", overflow: "hidden",
       background: today ? "#FFFBEB" : wk ? "#FFF8F8" : "#fff",
       border: today ? `2px solid ${GOLD}` : wk ? "1px solid #FDDCB5" : "1px solid #EBEBEB",
     }}>
@@ -895,12 +902,8 @@ function DayCell({ m, date, data, onClick, onTag }) {
       {(data.sessions || []).map((x, i) => (
         <TagChip key={i} kind={x.platform} block onTag={onTag} label={timeLabel(x.time).split("–")[0]} />
       ))}
-      {data.promo && <TagChip kind="promo" block onTag={onTag} label={data.promo} />}
-      {data.note && (
-        <div style={{ marginTop: 2, fontSize: 10, color: "#555", background: "#F5F5F5", borderRadius: 5, padding: "3px 6px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-          📝 {data.note.trim()}
-        </div>
-      )}
+      {data.promo && <TagChip kind="promo" block onTag={onTag} label="โปรโมชั่น" />}
+      {data.note && <div style={{ fontSize: 10, color: "#888", marginTop: 1 }}>📝</div>}
     </div>
   );
 }
@@ -1050,6 +1053,24 @@ export default function App() {
           </div>
         </div>
 
+        {/* Month grid */}
+        <div style={{ background: "#fff", borderRadius: 16, overflow: "hidden", boxShadow: "0 4px 24px rgba(11,36,71,0.08)", border: "1px solid #E8E8E8" }}>
+          <div>
+            <div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(7,minmax(0,1fr))", background: NAVY }}>
+                {DAY_NAMES.map((n, i) => (
+                  <div key={n} style={{ padding: "10px 0", textAlign: "center", fontSize: 12, fontWeight: 800, color: (i === 0 || i === 6) ? "#FFB3AD" : GOLD }}>{n}</div>
+                ))}
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(7,minmax(0,1fr))", gap: 4, padding: 4, background: "#F0EFED" }}>
+                {cells.map((date, i) => date ? (
+                  <DayCell key={i} m={month} date={date} data={monthData[date] || {}}
+                    onClick={() => openDay(date)} onTag={() => setViewDay(date)} />
+                ) : <div key={i} style={{ minHeight: 80 }} />)}
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* สรุปไลฟ์ทั้งหมด */}
         {sess.length > 0 && (
@@ -1072,10 +1093,10 @@ export default function App() {
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: v.promo || v.note ? 6 : 0 }}>
                           {v.sessions.map((x, i) => (
-                            <TagChip key={i} kind={x.platform} size={12} onTag={setListKind} label={`${tagInfo(x.platform).label} · ${timeLabel(x.time)}`} />
+                            <TagChip key={i} kind={x.platform} size={12} onTag={() => setViewDay(Number(date))} label={`${tagInfo(x.platform).label} · ${timeLabel(x.time)}`} />
                           ))}
                         </div>
-                        {v.promo && <TagChip kind="promo" size={12} onTag={setListKind} label={v.promo} />}
+                        {v.promo && <TagChip kind="promo" size={12} onTag={() => setViewDay(Number(date))} label={v.promo} />}
                         {v.note && <div style={{ fontSize: 12, color: "#666" }}>📝 {v.note.trim()}</div>}
                       </div>
                     </div>
@@ -1093,7 +1114,7 @@ export default function App() {
         <ListModal kind={listKind} m={month} monthData={monthData} onClose={() => setListKind(null)}
           onPick={(date) => { setListKind(null); openDay(date); }} />
       )}
-      {!isAdmin && viewDay !== null && !listKind && (
+      {viewDay !== null && !listKind && (
         <ViewModal m={month} date={viewDay} data={monthData[viewDay] || {}} onClose={() => setViewDay(null)}
           onTag={(k) => { setViewDay(null); setListKind(k); }} />
       )}
