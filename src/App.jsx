@@ -665,9 +665,309 @@ const STATIC_DATA = {
       "promo": ""
     }
   },
-  "2026-11": {},
+  "2026-11": {
+    "3": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        },
+        {
+          "platform": "shopee",
+          "time": "t4"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
+        }
+      ],
+      "note": "ประมูล TikTok",
+      "promo": ""
+    },
+    "6": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        },
+        {
+          "platform": "shopee",
+          "time": "t4"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "9": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t1"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t1"
+        },
+        {
+          "platform": "shopee",
+          "time": "t3"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "10": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        },
+        {
+          "platform": "shopee",
+          "time": "t4"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
+        }
+      ],
+      "note": "Pre Big Payday 11.11 แคมเปญใหญ่ เร่งให้ซื้อได้เลย / ประมูล TikTok Live",
+      "promo": "Pre Big Payday 11.11 แคมเปญใหญ่ คูปองลดโคตรโหด"
+    },
+    "11": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        },
+        {
+          "platform": "shopee",
+          "time": "t4"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t1"
+        }
+      ],
+      "note": "",
+      "promo": "11.11 Big Payday แคมเปญใหญ่ คูปองลดโคตรโหด"
+    },
+    "14": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        },
+        {
+          "platform": "shopee",
+          "time": "t4"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "15": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t1"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        },
+        {
+          "platform": "shopee",
+          "time": "t3"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "",
+      "promo": "Mid Month 15.11"
+    },
+    "17": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t1"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        },
+        {
+          "platform": "shopee",
+          "time": "t1"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t3"
+        }
+      ],
+      "note": "ประมูล TikTok Live",
+      "promo": ""
+    },
+    "20": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        },
+        {
+          "platform": "shopee",
+          "time": "t4"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "22": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "23": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "24": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
+        },
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
+        }
+      ],
+      "note": "ประมูล TikTok Live",
+      "promo": "Pre End of Month 25.11"
+    },
+    "27": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
+        },
+        {
+          "platform": "shopee",
+          "time": "t4"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t4"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "29": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    },
+    "30": {
+      "sessions": [
+        {
+          "platform": "shopee",
+          "time": "t2"
+        },
+        {
+          "platform": "tiktok",
+          "time": "t2"
+        }
+      ],
+      "note": "",
+      "promo": ""
+    }
+  },
   "2026-12": {}
 };
+
 
 
 const STORAGE_KEY = "gaam-calendar-2026";
